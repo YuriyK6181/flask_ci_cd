@@ -1,8 +1,9 @@
 """
 Doc String
 """
-from flask.testing import FlaskClient
 from _pytest.fixtures import fixture
+from flask.testing import FlaskClient
+
 from main import app
 
 
