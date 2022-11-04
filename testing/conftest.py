@@ -12,6 +12,6 @@ def client() -> FlaskClient:
     Doc String
     """
     app.config.update(SERVER_NAME="myserver.org")
-    with app.test_client() as client:
+    with app.test_client() as test_client:
         with app.app_context():
-            yield client
+            yield test_client

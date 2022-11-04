@@ -14,6 +14,7 @@ app.config.update(
 
 app.register_blueprint(products_app, url_prefix="/products")
 
+
 @app.route("/")
 def hello_world():
     """
