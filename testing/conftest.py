@@ -12,6 +12,7 @@ def client() -> FlaskClient:
     Doc String
     """
     app.config.update(SERVER_NAME="myserver.org")
+    app.config.update(WTF_CSRF_ENABLED=False)
     with app.test_client() as test_client:
         with app.app_context():
             yield test_client
