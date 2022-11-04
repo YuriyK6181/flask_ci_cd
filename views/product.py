@@ -1,5 +1,8 @@
+"""
+Doc String
+"""
 from flask import Blueprint, render_template, request, url_for, redirect
-from werkzeug.exceptions import BadRequest, NotFound
+from werkzeug.exceptions import NotFound
 from views.forms.products import CreateProductForm
 
 products_app = Blueprint("products_app", __name__)
@@ -12,11 +15,17 @@ PRODUCTS = {
 
 @products_app.route("/", endpoint="list")
 def get_products():
+    """
+    Doc String
+    """
     # return "<h1>Products List</h1>"
     return render_template("/products/list.html", products=PRODUCTS)
 
 @products_app.route("/<int:product_id>/", endpoint="details")
 def get_product(product_id: int):
+    """
+    Doc String
+    """
     product_name = PRODUCTS[product_id]
     if product_name is None:
         raise NotFound(f"Product #{product_id} not found!")
@@ -27,6 +36,9 @@ def get_product(product_id: int):
 
 @products_app.route("/add/", methods=["GET","POST"], endpoint="add")
 def add_product():
+    """
+    Doc String
+    """
     form = CreateProductForm()
     if request.method == "GET":
         return render_template("products/add.html", form=form)
@@ -43,5 +55,3 @@ def add_product():
     PRODUCTS[product_id] = product_name
     url = url_for("products_app.details", product_id=product_id)
     return redirect(url)
-
-
