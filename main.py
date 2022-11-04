@@ -41,10 +41,5 @@ def get_item(item_id: int):
 def get_item_str(item_id: str):
     return {"Item": {"id": item_id}, }
 
-
-# @app.route("/hello/<name>/")
-# def hello_name(name:str):
-#     return {"message": f"Hello {name}!"}
-
 if __name__ == "__main__":
     app.run(debug=True)
